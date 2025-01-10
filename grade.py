@@ -59,3 +59,12 @@ def main():
 
 main()
 
+import copy
+
+a = [[1,2],[3,4]]
+b = copy.copy(a)
+print(id(a),id(b))
+a[1].append(5)
+print(id(a),id(b))
+print(a)
+print(id(a[1]),id(b[1]))
