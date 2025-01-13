@@ -8,13 +8,17 @@ def ci_circle(r):
 
 
 a = 1000
-b = 1000
-print(a == b) #True
+b = 1000 + 0
+#print(a == b) #True
 print(id(a),id(b))
-print(a is b)
+#print(a is b)
 
 a = 3
 b = 3
-print(a == b)
+#print(a == b)
 print(id(a),id(b))
-print(a is b)
+#print(a is b)
+import platform
+
+# Python 인터프리터 구현체 확인 (예: CPython, PyPy 등)
+print(platform.python_implementation())
