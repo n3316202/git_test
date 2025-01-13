@@ -1,29 +1,63 @@
-import math
-from circle import *  # circle.py 모듈의 모든 함수와 상수를 가져옴
+import random
 
-#import 선언 없이 그냥 언제든 호출 가능한 함수
-print("Hello World")
 
-print(math.pi) # math 모듈의 pi 상수 호출
-print(math.sin(5)) # 삼각함수 호출
-print(PI) # circle.py 모듈의 PI 상수 호출
+class RspGame:
+    def __init__(self):
+        
+        self.rsp_list = ['가위','바위','보']
 
-dic_rsp_result = {
-    '가위': ('바위',"승"), 
-    '바위': ('보',"승"),
-    '보': ('가위',"승"),
-}
+        self.dic_rsp_result = {
+            '가위': ('바위',"승"), 
+            '바위': ('보',"승"),
+            '보': ('가위',"승"),
+        }
 
-def rsp(mine,yours):
+        self.computer = None
+        self.user = None
 
-    if mine == yours:
-        return "비겼습니다."
-    elif dic_rsp_result[mine][0] == yours:
-        return "이겼습니다."
-    else:
-        return "졌습니다."
+    def set_rsp(self):
+        
+        while True:
+            try:
+                self.user = input("가위 바위 보 중에 하나를 입력하세요.> ")
+                if self.user in self.dic_rsp_result.keys():
+                    break
+                print("잘못된 입력입니다. 다시 입력하세요.")    
+            except:
+                print("잘못된 입력입니다. 다시 입력하세요.")
+                continue
+            
+        self.computer = random.choice(self.rsp_list)
 
-print(rsp("가위","바위"))
-print(rsp("바위","바위"))
-print(rsp("가위","바위"))
+
+    def rsp_reslut(self):
+
+        if self.computer == self.user:
+            return "비겼습니다."
+        elif self.dic_rsp_result[self.user][0] == self.computer:
+            return "이겼습니다."
+        else:
+            return "졌습니다."
+    
+    def run(self):
+        
+        while True:
+            self.set_rsp()
+            print("사용자 : ",self.user)
+            print("컴퓨터 : ",self.computer)
+            print(self.rsp_reslut())
+            
+            continue_yn = input("계속 하시겠습니까? (y/n) : ")
+           
+            if continue_yn.upper() not in ['Y', 'YES'] :
+                break
+            
+        print("프로그램 종료")
+
+
+rsp_game = RspGame()
+rsp_game.run()
+
+
+
 
