@@ -21,7 +21,7 @@ class UniServer:
     def sendMsg(self):#키보드 입력받아 상대방에게 메시지 전송.
         while True:
             msg = input('msg:')
-            data = msg.encode(encoding='utf-8 ')
+            data = msg.encode(encoding='utf-8')
             self.client_soc.sendall(data)
             if msg ==  '/stop':
                 break
@@ -38,6 +38,7 @@ class UniServer:
         self.open()
         self.client_soc, addr = self.server_soc.accept()#클라이언트 1명만 받음
         print(addr, '접속함')
+        
         th1 = threading.Thread(target=self.sendMsg)
         th1.start()
         th2 = threading.Thread(target=self.recvMsg)

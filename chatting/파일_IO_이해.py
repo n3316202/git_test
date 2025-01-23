@@ -11,7 +11,7 @@ handle.close();
 # 파일 커넥션을 open한다. 옵션을 r로 설정했다.
 handle = open("text.txt", "r");
 # read함수는 파일 전체를 한번에 읽어드린다.
-data =handle.read();
+data = handle.read();
 # 커넥션을 닫는다.
 handle.close();
 print(data);
