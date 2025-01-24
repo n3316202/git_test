@@ -4,7 +4,8 @@ host = 'localhost'
 port = 55555
 
 parent_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
-parent_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  #socket.SO_REUSEADDR 옵션을 설정해주면 방금 사용하고 close한 port를 즉시 다시 사용
+parent_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  
+#socket.SO_REUSEADDR 옵션을 설정해주면 방금 사용하고 close한 port를 즉시 다시 사용
 
 parent_sock.bind((host, port))
 parent_sock.listen(5) # 대기열 크기 5
